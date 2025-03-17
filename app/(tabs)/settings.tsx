@@ -1,8 +1,15 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Switch } from 'react-native';
 import { Crown, Globe as Globe2, Bell, Shield, Zap, ChevronRight, LogOut } from 'lucide-react-native';
+import { supabase } from '@/lib/supabase';
+import { router } from 'expo-router';
 
 export default function SettingsScreen() {
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    router.replace('/(auth)/sign-in');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -76,7 +83,7 @@ export default function SettingsScreen() {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={styles.logoutButton}>
+      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
         <LogOut size={20} color="#ef4444" />
         <Text style={styles.logoutText}>Log Out</Text>
       </TouchableOpacity>

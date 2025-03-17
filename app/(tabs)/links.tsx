@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, Linking } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, Linking, ActivityIndicator } from 'react-native';
 import { Link2, ExternalLink, ChartBar as BarChart2 } from 'lucide-react-native';
 import { getUserUrls } from '@/lib/supabase';
 
